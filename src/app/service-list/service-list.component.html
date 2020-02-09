@@ -1,11 +1,46 @@
 <div class="container-fluid">
-  <div class="row" *ngFor="let serviceRow of serviceList">
+  <div class="row" *ngFor="let serviceRow of serviceList" style="margin-top: 2%;">
     <div class="col" *ngFor="let service of serviceRow">
-      <div class="card border-primary">
-        <h4 class="card-header text-white bg-primary">service.name</h4>
+      <div class="card border-primary" style="height: 100%;">
+        <h4 class="card-header text-white bg-primary">
+          <div class="row">
+            <div class="col">
+              {{service.name}} - {{service.version}}
+            </div>
+          </div>
+        </h4>
         <div class="card-body">
-          service.description
-        </div> 
+          <div class="row">
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <h5>Overview:</h5>
+                  <p>{{service.description}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <p><b>Language:</b> {{service.language}}</p>
+                </div>
+                <div class="col">
+                  <p><b>Service Type:</b> {{service.type}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <h5>24hr Statistics:</h5>
+              <ul class="list-group">
+                <li class="list-group-item" [ngClass]="{'list-group-item-danger':service.num_errors >= 10}">Service Errors: {{service.num_errors}}</li>
+                <li class="list-group-item" [ngClass]="{'list-group-item-danger':service.coverage < 70}">Test Code Coverage: {{service.coverage}}%</li>
+                <li class="list-group-item">Punch Card: {{service.punch_card}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="card-link">Details</a>
+          <a href="#" class="card-link">Repository</a>
+        </div>
       </div>
     </div>
   </div>
