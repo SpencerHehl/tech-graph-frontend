@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./service-list.component.scss']
 })
 export class ServiceListComponent implements OnInit {
+  listLastUpdated = '02/09/2020 13:39:52';
   serviceList = [
     [
       {
