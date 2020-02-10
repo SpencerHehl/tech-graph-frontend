@@ -10,6 +10,8 @@ export class ServiceListComponent implements OnInit {
   serviceList = [
     [
       {
+        id: '1',
+        repository: 'https://github.com/ArcherFRS/Service-Telemetry',
         name: 'Telemetry Service',
         description: 'The service responsible for providing telemetry data to a given front end',
         type: 'Backend',
@@ -20,6 +22,8 @@ export class ServiceListComponent implements OnInit {
         punch_card: '4'
       },
       {
+        id: '2',
+        repository: 'https://github.com/ArcherFRS/Service-Logistics',
         name: 'Fleet Logistics Service',
         description: 'The service responsible for managing fleet system logistics including customer, device, and point information.',
         type: 'Backend',
@@ -31,6 +35,8 @@ export class ServiceListComponent implements OnInit {
       }
     ], [
       {
+        id: '3',
+        repository: 'https://github.com/ArcherFRS/System-State',
         name: 'State Service',
         description: 'The service responsible for managing the cumulative state of fleet devices.',
         type: 'Backend',
@@ -41,6 +47,8 @@ export class ServiceListComponent implements OnInit {
         punch_card: '5'
       },
       {
+        id: '4',
+        repository: 'https://github.com/ArcherFRS/Airspace-Service',
         name: 'Airsapce Service',
         description: 'The service responsible for monitoring Airspace traffic and advisories and providing flight status based on the data.',
         type: 'Backend',

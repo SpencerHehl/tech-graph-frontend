@@ -1,3 +1,173 @@
-<p>
-  service-details works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card border-primary">
+        <h4 class="card-header text-white bg-primary">
+          {{service.overview.name}} Overview
+        </h4>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title">Details</h5>
+              <ul class="list-group">
+                <li class="list-group-item"><b>Version:</b> {{service.overview.version}}</li>
+                <li class="list-group-item"><b>Type:</b> {{service.overview.type}}</li>
+                <li class="list-group-item"><b>Language:</b> {{service.overview.language}}</li>
+                <a href="https://github.com/ArcherFRS/archer-dev-shared#terraform-dev-shared" class="list-group-item"><b>Readme</b></a>
+              </ul>
+            </div>
+            <div class="col">
+              <h5 class="card-title">Repo Info</h5>
+              <div class="accordion" id="repoAccordian">
+                <div class="card">
+                  <div class="card-header" id="branchHeading">
+                    <h2 class="mb-0">
+                      <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#branchCollapse" aria-expanded="true" aria-controls="branchCollapse">
+                        <b>Branches:</b> {{service.repo_info.branches.length}}
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="branchCollapse" class="collapse" aria-labelledby="branchHeading" data-parent="#repoAccordian">
+                    <div class="card-body">
+                      <ul class="list-group">
+                        <a class="list-group-item" href="branch.link" *ngFor="let branch of service.repo_info.branches">{{branch.name}}</a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="commitHeading">
+                    <h2 class="mb-0">
+                      <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#commitCollapse" aria-expanded="true" aria-controls="commitCollapse">
+                        <b>24hr Commits:</b> {{service.repo_info.commits.length}}
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="commitCollapse" class="collapse" aria-labelledby="commitHeading" data-parent="#repoAccordian">
+                    <div class="card-body">
+                      <ul class="list-group">
+                        <a class="list-group-item" href="commit.link" *ngFor="let commit of service.repo_info.commits">{{commit.description}}</a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="pullReqHeading">
+                    <h2 class="mb-0">
+                      <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#pullReqCollapse" aria-expanded="true" aria-controls="pullReqCollapse">
+                        <b>Pull Requests:</b> {{service.repo_info.pull_requests.length}}
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="pullReqCollapse" class="collapse" aria-labelledby="pullReqHeading" data-parent="#repoAccordian">
+                    <div class="card-body">
+                      <ul class="list-group">
+                        <a class="list-group-item" href="pull_req.link" *ngFor="let pull_req of service.repo_info.pull_requests">{{pull_req.name}}</a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="forkHeading">
+                    <h2 class="mb-0">
+                      <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#forkCollapse" aria-expanded="true" aria-controls="forkCollapse">
+                        <b>Forks:</b> {{service.repo_info.forks.length}}
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="forkCollapse" class="collapse" aria-labelledby="forkHeading" data-parent="#repoAccordian">
+                    <div class="card-body">
+                      <ul class="list-group">
+                        <a class="list-group-item" href="fork.link" *ngFor="let fork of service.repo_info.forks">{{fork.name}}</a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <div class="card border-primary">
+            <h4 class="card-header text-white bg-primary">
+              Dependencies
+            </h4>
+            <div class="card-body">
+              Stuff
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="card border-primary">
+            <h4 class="card-header text-white bg-primary">
+              Functions
+            </h4>
+            <div class="card-body">
+              Stuff
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="card border-primary">
+            <h4 class="card-header text-white bg-primary">
+              Work Records
+            </h4>
+            <div class="card-body">
+              Stuff
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card border-primary">
+        <h4 class="card-header text-white bg-primary">
+          Github Statistics
+        </h4>
+        <div class="card-body">
+          Stuff
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card border-primary">
+        <h4 class="card-header text-white bg-primary">
+          Testing Statistics
+        </h4>
+        <div class="card-body">
+          Stuff
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card border-primary">
+        <h4 class="card-header text-white bg-primary">
+          Health Metrics
+        </h4>
+        <div class="card-body">
+          Stuff
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card border-primary">
+        <h4 class="card-header text-white bg-primary">
+          Security Metrics
+        </h4>
+        <div class="card-body">
+          Stuff
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
