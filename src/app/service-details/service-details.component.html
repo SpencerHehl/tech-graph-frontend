@@ -88,6 +88,31 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col">
+          <div class="card border-primary">
+            <h4 class="card-header text-white bg-primary">
+              Work Records
+            </h4>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3">
+                  <b>Open Work Items: </b> {{service.work_records.num_open_work_items}}
+                </div>
+                <div class="col-3">
+                  <b>Feature Requests: </b> {{service.work_records.num_feature_reqs}}
+                </div>
+                <div class="col">
+                  <b>Bugs: </b> {{service.work_records.num_bugs}}
+                </div>
+                <div class="col-4">
+                  <b>Closed Work Items: </b> {{service.work_records.num_closed_work_items}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col">
       <div class="row">
@@ -97,7 +122,10 @@
               Dependencies
             </h4>
             <div class="card-body">
-              Stuff
+              <ul class="list-group">
+                <button type="button" (click)="viewServiceInfoList('softwareDependencies')" class="list-group-item list-group-item-action"><b>Software Dependencies:</b> {{service.dependency_info.softwareDependencies.length}}</button>
+                <button type="button" (click)="viewServiceInfoList('resourceDependencies')" class="list-group-item list-group-item-action"><b>Resource Dependencies:</b> {{service.dependency_info.resourceDependencies.length}}</button>
+              </ul>
             </div>
           </div>
         </div>
@@ -109,19 +137,26 @@
               Functions
             </h4>
             <div class="card-body">
-              Stuff
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="card border-primary">
-            <h4 class="card-header text-white bg-primary">
-              Work Records
-            </h4>
-            <div class="card-body">
-              Stuff
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title">APIs</h5>
+                  <ul class="list-group">
+                    <button type="button" class="list-group-item list-group-item-action" *ngFor="let api of service.function_info.apisPreview" (click)="viewApi(api)">
+                      {{api.name}}
+                    </button>
+                    <button *ngIf="service.function_info.apis.length > 3" type="button" class="list-group-item list-group-item-action" (click)="viewServiceInfoList('apis')">View All</button>
+                  </ul>
+                </div>
+                <div class="col">
+                  <h5 class="card-title">Workflows</h5>
+                  <ul class="list-group">
+                    <a href="workflow.link" class="list-group-item" *ngFor="let workflow of service.function_info.workflowsPreview">
+                      {{workflow.name}}
+                    </a>
+                    <button *ngIf="service.function_info.workflows.length > 3" type="button" class="list-group-item list-group-item-action" (click)="viewServiceInfoList('workflows')">View All</button>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -167,6 +202,28 @@
         <div class="card-body">
           Stuff
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="serviceItemList">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{itemList.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let item of itemList.list">{{item.name}}</li>
+          <button type="button" class="list-group-item list-group-item-action" *ngFor="let item of itemList.buttonList" (click)="viewApi(item)">{{item.name}}</button>
+          <a href="item.link" class="list-group-item" *ngFor="let item of itemList.linkList">{{item.name}}</a>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
